@@ -1,0 +1,31 @@
+package data;
+
+import static org.lwjgl.opengl.GL11.*;
+
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+
+public class Boot {
+	
+	public static final int HEIGHT = 400, WIDTH = 600;
+	
+	public Boot() {
+		
+		Display.setTitle("Game Tutorial");
+		try {
+			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
+		} catch (LWJGLException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		new Boot();
+
+	}
+
+}

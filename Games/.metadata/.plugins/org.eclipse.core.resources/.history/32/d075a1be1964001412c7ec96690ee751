@@ -1,0 +1,21 @@
+package helpers;
+
+import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
+import static org.lwjgl.opengl.GL11.GL_PROJECTION;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glMatrixMode;
+import static org.lwjgl.opengl.GL11.glOrtho;
+
+public class Artist {
+	
+	public static final int WIDTH = 600, HEIGHT = 400;
+	
+	public static void BeginSession() {
+		
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(0, 600, 400, 0, 1, -1);
+		glMatrixMode(GL_MODELVIEW);
+	}
+
+}

@@ -1,0 +1,38 @@
+package data;
+
+import static helpers.Artist.*;
+
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
+
+public class Boot {
+	
+	public static final int HEIGHT = 400, WIDTH = 600;
+	
+	public Boot() {
+	
+		BeginSession();
+		
+		Texture t = QuickLoad("dirt64");
+		Texture t2 = QuickLoad("grass64");
+		
+		while(!Display.isCloseRequested()) {
+			
+			DrawQuadTex(t, 0, 0, 64, 64);
+			DrawQuadTex(t2, 64, 0, 64, 64);
+			
+			Display.update();
+			Display.sync(60);
+		}
+		
+		Display.destroy();
+		
+	}
+
+	public static void main(String[] args) {
+		
+		new Boot();
+
+	}
+
+}

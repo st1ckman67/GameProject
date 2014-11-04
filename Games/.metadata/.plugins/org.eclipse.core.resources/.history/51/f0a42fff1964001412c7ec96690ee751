@@ -1,0 +1,57 @@
+package data;
+
+import static org.lwjgl.opengl.GL11.*;
+
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+
+public class Boot {
+	
+	public static final int HEIGHT = 400, WIDTH = 600;
+	
+	public Boot() {
+		
+		Display.setTitle("Game Tutorial");
+		try {
+			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
+			Display.create();
+		} catch (LWJGLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
+		float width = 50, height = 50;
+		float x = 100, y = 100;
+		
+		while(!Display.isCloseRequested()) {
+			
+			glBegin(GL_LINES);
+				glVertex2f(10, 10);
+				glVertex2f(100, 100);
+			glEnd();
+				
+			glBegin(GL_QUADS);
+				glVertex2f(x, y);
+				glVertex2f(x + width, y);
+				glVertex2f(x + width, y + height);
+				glVertex2f(x, y + height);
+			glEnd();
+			
+			Display.update();
+			Display.sync(60);
+		}
+		
+		Display.destroy();
+		
+	}
+
+	public static void main(String[] args) {
+		
+		new Boot();
+
+	}
+
+}

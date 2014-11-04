@@ -1,0 +1,8 @@
+package data;
+
+public class Tile {
+	
+	private float x, y, width height;
+	private Texture texture;
+
+}
